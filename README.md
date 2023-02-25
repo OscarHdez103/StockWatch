@@ -1,2 +1,2 @@
 # StockWatch
-Brishack event February 2023
+BrisHack 2023
