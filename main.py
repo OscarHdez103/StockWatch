@@ -19,5 +19,5 @@ def nth_prime(n):
     return num - 1
 
 
-print(nth_prime(5))
+print(nth_prime(9))
 print(nth_prime(7))
