@@ -6,6 +6,7 @@ def is_prime(num):
             return False
     return True
 
+
 def nth_prime(n):
     if n <= 0:
         return None
@@ -17,4 +18,6 @@ def nth_prime(n):
         num += 1
     return num - 1
 
-print(nth_prime(3))
+
+print(nth_prime(5))
+print(nth_prime(7))
