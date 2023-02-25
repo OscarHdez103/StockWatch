@@ -17,4 +17,4 @@ def nth_prime(n):
         num += 1
     return num - 1
 
-print(nth_prime(14))
+print(nth_prime(3))
