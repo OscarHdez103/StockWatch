@@ -1,0 +1,21 @@
+product_id,product_name,product_catagory,product_description,product_cost,product_quantity,product_supplier
+1,Coke,Beverage,100ml,0.13,95889,COP
+2,Milk,Fresh,100ml,0.12,83872,COP
+3,Crisps,Dry Foods,100g,0.13,93306,COP
+4,Eggs,Fresh,Per Unit,0.2,8637,COP
+5,Bread,Fresh,100g,0.12,13308,COP
+6,Cereal,Dry Foods,100g,0.27,22781,COP
+7,Beef,Meat,100g,1.12,26261,COP
+8,Chicken,Meat,100g,0.67,31850,COP
+9,Water,Beverage,100ml,0.03,30415,COP
+10,Cookies,Snacks,100g,0.4,25733,COP
+11,Carrots,Fresh,100g,0.06,17191,COP
+12,Potatoes,Fresh,100g,0.07,6930,COP
+13,Coffee,Beverage,100g,0.23,24488,COP
+14,Peanut Butter,Snacks,100g,0.63,99368,COP
+15,Pizza,Snacks,100g,0.91,38462,COP
+16,Butter,Fresh,100g,0.48,12888,COP
+17,Pasta,Dry Foods,100g,0.19,56438,COP
+18,Sausages,Meat,100g,0.45,29957,COP
+19,Rice,Dry Foods,100g,0.13,42608,COP
+20,Flour,Dry Foods,100g,0.08,31872,COP

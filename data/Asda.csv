@@ -1,0 +1,21 @@
+product_id,product_name,product_catagory,product_description,product_cost,product_quantity,product_supplier
+1,Coke,Beverage,100ml,0.13,88775,ASD
+2,Milk,Fresh,100ml,0.12,60822,ASD
+3,Crisps,Dry Foods,100g,0.13,24194,ASD
+4,Eggs,Fresh,Per Unit,0.2,58096,ASD
+5,Bread,Fresh,100g,0.12,61354,ASD
+6,Cereal,Dry Foods,100g,0.27,77718,ASD
+7,Beef,Meat,100g,1.12,42943,ASD
+8,Chicken,Meat,100g,0.67,37683,ASD
+9,Water,Beverage,100ml,0.03,94525,ASD
+10,Cookies,Snacks,100g,0.4,80531,ASD
+11,Carrots,Fresh,100g,0.06,14600,ASD
+12,Potatoes,Fresh,100g,0.07,90238,ASD
+13,Coffee,Beverage,100g,0.23,28802,ASD
+14,Peanut Butter,Snacks,100g,0.63,10649,ASD
+15,Pizza,Snacks,100g,0.91,49214,ASD
+16,Butter,Fresh,100g,0.48,63524,ASD
+17,Pasta,Dry Foods,100g,0.19,93205,ASD
+18,Sausages,Meat,100g,0.45,17551,ASD
+19,Rice,Dry Foods,100g,0.13,48221,ASD
+20,Flour,Dry Foods,100g,0.08,51071,ASD
