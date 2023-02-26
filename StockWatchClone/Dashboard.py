@@ -6,6 +6,7 @@ import sqlite3
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
+
 def tabulate(supermarket, data):
     query_df = pd.DataFrame(product_search(supermarket, data))
     if supermarket == "Products":
@@ -19,20 +20,20 @@ def product_search(supermarket, product):
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
-        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product.title() + "'")
+        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = ?", (product.title(),))
     data = c.fetchall()
     for i in range(len(data)):
         end = len(data[i])
         if len(data[i]) == 4:
             data[i] = data[i][1:end]
         else:
-            data[i] = data[i][1:end-1]
+            data[i] = data[i][1:end - 1]
     return data
 
 
 def home():
     st.markdown("<h1 style='text-align: center;'>StockWatch</h1>", unsafe_allow_html=True)
-    #st.sidebar.image("StockWatchLogo.png", use_column_width=True)
+    # st.sidebar.image("StockWatchLogo.png", use_column_width=True)
     supermarkets = ["Products", "Tesco", "Iceland", "Asda", "Morrisons", "Co-op"]
     col1, col2 = st.columns(2)
     with col1:
