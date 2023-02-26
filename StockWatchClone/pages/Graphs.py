@@ -12,7 +12,7 @@ c = conn.cursor()
 
 def add_graph(supermarkets, data, color):
     if data == "":
-        st.write("Input a product")
+        st.write("")
         return
     if not is_product(supermarkets, data):
         st.error("Product not found")
