@@ -31,7 +31,7 @@ def product_search(supermarket,product):
 
 
 def home():
-    st.markdown("<h1 style='text-align: center; color: black;'>StockWatch</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>StockWatch</h1>", unsafe_allow_html=True)
     supermarkets = ["Products", "Tesco", "Iceland", "Asda", "Morrisons", "Co-op"]
     col1, col2 = st.columns(2)
     with col1:
