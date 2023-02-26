@@ -17,6 +17,7 @@ def sql_executor(query):  # work in progress
     return data
 
 def product_search(supermarket,product):
+
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
@@ -26,7 +27,7 @@ def product_search(supermarket,product):
 
 
 def home():
-    supermarkets = ["Products", "Tesco", "Sainsbury's", "Asda", "Morrisons", "Co-op"]
+    supermarkets = ["Products", "Tesco", "Iceland", "Asda", "Morrisons", "Co-op"]
     col1, col2 = st.columns(2)
     with col1:
         supermarkets_selector = st.selectbox("Supermarket", supermarkets)  # doesn't do anything yet
