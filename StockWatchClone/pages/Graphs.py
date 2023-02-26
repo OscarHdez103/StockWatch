@@ -1,4 +1,6 @@
 import sqlite3
+
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -8,9 +10,9 @@ conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
 
-def add_graph(supermarkets, data):
+def add_graph(supermarkets, data, color):
     if data == "":
-        st.write("Input a product")
+        st.write("")
         return
     if not is_product(supermarkets, data):
         st.error("Product not found")
@@ -27,15 +29,21 @@ def add_graph(supermarkets, data):
     # Flatten the list of Series to a list of values
     quantities = sum(quantities, [])
 
-    df = pd.DataFrame({'labels': supermarkets, 'Quantity': quantities})
+    df = pd.DataFrame({'Supermarkets': supermarkets, 'Quantity': quantities})
 
-    df['labels'] = df['labels'].astype(str)
+    df['Supermarkets'] = df['Supermarkets'].astype(str)
 
-    # Set the 'labels' column as the index
-    df.set_index('labels', inplace=True)
+    # Define the chart
+    chart = alt.Chart(df).mark_bar().encode(
+        x='Supermarkets',
+        y='Quantity',
+        color=alt.ColorValue(color),
+    ).properties(
+        width=700,
+    )
 
-    # Create the bar chart
-    st.bar_chart(df)
+    st.altair_chart(chart)
+
 
 def is_product(supermarkets, data):
     for supermarket in supermarkets:
@@ -43,6 +51,8 @@ def is_product(supermarkets, data):
         if len(query_result) > 0:
             return True
     return False
+
+
 def sql_executor(query):  # work in progress
     c.execute(query)
     data = c.fetchall()
@@ -60,17 +70,17 @@ def product_search(supermarket, product):
 
 def graph():
     supermarkets = ["Products", "Tesco", "Iceland", "Asda", "Morrisons", "Co-op"]
-    col1, col2 = st.columns(2)
-    with col1:
-        with st.form(key='query_form'):
-            product = st.text_input("Search product")
-            submit_code = st.form_submit_button("Search")
 
-    with col2:
-        if submit_code:
-            add_graph(supermarkets, product)
-        else:
-            add_graph(supermarkets, "")
+    with st.form(key='query_form'):
+        product = st.text_input("Search product")
+        submit_code = st.form_submit_button("Search")
+    cols = st.columns(22)
+    with cols[1]:
+        color = st.color_picker('', '#55ACEE')
+    if submit_code:
+        add_graph(supermarkets, product, color)
+    else:
+        add_graph(supermarkets, "Bread", color)
 
 
 if __name__ == '__main__':
