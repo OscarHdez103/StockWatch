@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 
-conn = sqlite3.connect('data/Chinook_Sqlite.sqlite')
+conn = sqlite3.connect('Chinook_Sqlite.sqlite')
 c = conn.cursor()
 
 
