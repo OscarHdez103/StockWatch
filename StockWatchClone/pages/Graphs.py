@@ -24,7 +24,7 @@ def add_graph(supermarkets, data):
     # Flatten the list of Series to a list of values
     quantities = sum(quantities, [])
 
-    df = pd.DataFrame({'labels': supermarkets, 'values': quantities})
+    df = pd.DataFrame({'labels': supermarkets, 'Quantity': quantities})
 
     df['labels'] = df['labels'].astype(str)
 
