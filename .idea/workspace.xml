@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d64227c-c265-4133-8347-8bd2467ded13" name="Changes" comment="Added addition" />
-    <list id="eed341ac-1442-4fb8-a404-fc411c12bc80" name="Changes by seccu" comment="" />
+    <list default="true" id="9d64227c-c265-4133-8347-8bd2467ded13" name="Changes" comment="Supermarkets.db">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chinook_Sqlite.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <list id="09905172-ecef-4984-9c78-ea5318b02fea" name="Changes by lukeedwards" comment="">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <list id="4c4a8ba7-672d-460e-8521-925ac300b417" name="Changes by seccu" comment="">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +22,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/main.py">
+      <ranges>
+        <range start1="0" end1="2" start2="0" end2="0" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
+        <range start1="6" end1="7" start2="4" end2="5" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
+        <range start1="22" end1="23" start2="20" end2="21" changelist="4c4a8ba7-672d-460e-8521-925ac300b417" />
+        <range start1="28" end1="30" start2="26" end2="27" changelist="09905172-ecef-4984-9c78-ea5318b02fea" />
+        <range start1="32" end1="33" start2="29" end2="30" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,6 +61,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shayaan\PycharmProjects\StockWatch\data" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="StockWatch" />
@@ -77,7 +102,7 @@
       <workItem from="1677342236945" duration="455000" />
       <workItem from="1677343706068" duration="268000" />
       <workItem from="1677411697223" duration="2538000" />
-      <workItem from="1677414607969" duration="7477000" />
+      <workItem from="1677414607969" duration="9994000" />
     </task>
     <task id="LOCAL-00001" summary="Added addition">
       <created>1677342149208</created>
@@ -128,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677343905424</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Supermarkets.db">
+      <created>1677425002653</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677425002653</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,10 +179,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added addition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added addition" />
+    <MESSAGE value="Supermarkets.db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Supermarkets.db" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StockWatch$main.coverage" NAME="main Coverage Results" MODIFIED="1677417626306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StockWatch$main.coverage" NAME="main Coverage Results" MODIFIED="1677425501032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StockWatch$custprog.coverage" NAME="custprog Coverage Results" MODIFIED="1677343908464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

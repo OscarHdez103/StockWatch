@@ -1,10 +1,8 @@
-from base64 import b64encode
-
 import streamlit as st
 import pandas as pd
 import sqlite3
 
-conn = sqlite3.connect('Chinook_Sqlite.sqlite')
+conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
 
@@ -20,17 +18,16 @@ def sql_executor(query):  # work in progress
 
 
 def product_search(product):
-    c.execute("SELECT * FROM Product WHERE ProductName = ?", product)
+    c.execute("SELECT * FROM Products WHERE product_name = ?", product)
     data = c.fetchall()
     return data
 
 
 def home():
-    supermarkets = ["Tesco", "Sainsbury's", "Asda", "Morrisons", "Waitrose", "Lidl", "Aldi", "Iceland", "Co-op", "M&S",
-                    "Spar", "Other"]
+    supermarkets = ["Tesco", "Sainsbury's", "Asda", "Morrisons", "Co-op"]
     col1, col2 = st.columns(2)
     with col1:
-        supermarkets_selector = st.selectbox("Supermarket", supermarkets)
+        supermarkets_selector = st.selectbox("Supermarket", supermarkets)  # doesn't do anything yet
         with st.form(key='query_form'):
             product = st.text_area("Search product")
             submit_code = st.form_submit_button("Search")
