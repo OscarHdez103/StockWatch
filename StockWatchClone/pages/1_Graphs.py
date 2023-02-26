@@ -78,7 +78,7 @@ def graph():
     with cols[1]:
         color = st.color_picker('', '#55ACEE')
     if submit_code:
-        add_graph(supermarkets, product, color)
+        add_graph(supermarkets, product.title(), color)
     else:
         add_graph(supermarkets, "Bread", color)
 
