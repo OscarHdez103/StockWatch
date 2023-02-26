@@ -1,5 +1,4 @@
 import sqlite3
-import streamlit as st
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
@@ -8,7 +7,7 @@ c = conn.cursor()
 def total(product, supermarket):
     c.execute("SELECT product_quantity FROM " + supermarket + " WHERE product_name = '" + product + "'")
     quantity = c.fetchall()
-    c.execute("UPDATE Products SET quantity_total = quantity_total + " + str(quantity[0][0]) + " WHERE product_name = '" + product.title() + "'")
+    c.execute("UPDATE Products SET quantity_total = quantity_total +  ? WHERE product_name = ?", (quantity[0][0], product.title()))
     conn.commit()
 
 
