@@ -9,10 +9,6 @@ st.markdown('<div style="text-align: center;">StockWatch is a comprehensive dash
 
 def about():
     st.markdown("")
-    st.subheader("<h1 style='text-align: center;'>Using StockWatch</h1>", unsafe_allow_html=True)
-    st.markdown('<div style="text-align: center;">StockWatch is a comprehensive dashboard that enables you to '
-                'effortlessly track national-level and individual supermarket stock for various products.</div>',
-                unsafe_allow_html=True)
     # with open("PresentationStockWatch.pdf", "rb") as f:
     #     pdf_bytes = f.read()
     #     pdf_base64 = b64encode(pdf_bytes).decode('utf-8')
