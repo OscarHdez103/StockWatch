@@ -1,54 +1,65 @@
+from base64 import b64encode
+
 import streamlit as st
 import pandas as pd
 import sqlite3
-conn = sqlite3.connect('data/Chinook_Sqlite.sqlite')
+
+conn = sqlite3.connect('Chinook_Sqlite.sqlite')
 c = conn.cursor()
 
-def sql_executor(raw_code):
-    c.execute(raw_code)
+
+def tabulate(data):
+    query_df = pd.DataFrame(product_search(data))
+    st.dataframe(query_df)
+
+
+def sql_executor(query):  # work in progress
+    c.execute(query)
     data = c.fetchall()
     return data
 
+
+def product_search(product):
+    c.execute("SELECT * FROM Product WHERE ProductName = ?", product)
+    data = c.fetchall()
+    return data
+
+
+def home():
+    supermarkets = ["Tesco", "Sainsbury's", "Asda", "Morrisons", "Waitrose", "Lidl", "Aldi", "Iceland", "Co-op", "M&S",
+                    "Spar", "Other"]
+    col1, col2 = st.columns(2)
+    with col1:
+        supermarkets_selector = st.selectbox("Supermarket", supermarkets)
+        with st.form(key='query_form'):
+            product = st.text_area("Search product")
+            submit_code = st.form_submit_button("Search")
+
+    with col2:
+        if submit_code:
+            st.code(product)
+            with st.expander("Pretty Table"):
+                tabulate(product)
+
+
+def about():
+    st.subheader("About")
+    # with open("PresentationStockWatch.pdf", "rb") as f: pdf_bytes = f.read() pdf_base64 = b64encode(
+    # pdf_bytes).decode('utf-8') pdf_embed = f'<iframe src="data:application/pdf;base64,{pdf_base64}" width="700"
+    # height="300" type="application/pdf"></iframe>'
+    #
+    # st.markdown(pdf_embed, unsafe_allow_html=True)
+
+
 def main():
-    st.title("Lux")
-    menu = ["Home","Login","Create Account","About"]
-    choice = st.sidebar.selectbox("Menu",menu)
-    if choice == "Home":
-        st.subheader("HomePage")
-        col1,col2,col3,col4,col5 = st.columns(5)
-        with col1:
-            with st.form(key='query_form'):
-                raw_code = st.text_area("Look up here")
-                submit_code = st.form_submit_button("Execute")
-            with st.expander("Table Info"):
-                t_info = {}
+    st.title("StockWatch")
+    menu = ["Home", "About"]
+    home()
 
-        with col2:
-            if submit_code:
-                st.info("Query Submitted")
-                st.code(raw_code)
-                query_results = sql_executor(raw_code)
-                with st.expander("Results"):
-                    st.write(query_results)
-                with st.expander("Pretty Table"):
-                    query_df = pd.DataFrame(query_results)
-                    st.dataframe(query_df)
-
-
-    elif choice == "About":
-        st.subheader("About")
-    elif choice == "Create Account":
-        st.subheader("Create Account")
-    elif choice == "Login":
-        st.subheader("Login")
-
-
-
-
-
+    with st.sidebar:
+        st.button("Home", on_click=home)
+        st.button("About", on_click=about)
 
 
 if __name__ == '__main__':
     main()
-
-
