@@ -9,6 +9,9 @@ c = conn.cursor()
 
 
 def add_graph(supermarkets, data):
+    if data == "":
+        st.write("Input a product")
+        return
     if not is_product(supermarkets, data):
         st.error("Product not found")
         return
@@ -60,13 +63,14 @@ def graph():
     col1, col2 = st.columns(2)
     with col1:
         with st.form(key='query_form'):
-            product = st.text_area("Search product")
+            product = st.text_input("Search product")
             submit_code = st.form_submit_button("Search")
 
     with col2:
         if submit_code:
-            with st.expander("Graph"):
-                add_graph(supermarkets, product)
+            add_graph(supermarkets, product)
+        else:
+            add_graph(supermarkets, "")
 
 
 if __name__ == '__main__':
