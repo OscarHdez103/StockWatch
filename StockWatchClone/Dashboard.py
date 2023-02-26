@@ -6,6 +6,7 @@ conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
 
+
 def tabulate(supermarket, data):
     query_df = pd.DataFrame(product_search(supermarket, data))
     if supermarket == "Products":
