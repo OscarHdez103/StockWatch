@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9d64227c-c265-4133-8347-8bd2467ded13" name="Changes" comment="Supermarkets.db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chinook_Sqlite.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
-    <list id="09905172-ecef-4984-9c78-ea5318b02fea" name="Changes by lukeedwards" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
-    <list id="4c4a8ba7-672d-460e-8521-925ac300b417" name="Changes by seccu" comment="">
+    <list id="09905172-ecef-4984-9c78-ea5318b02fea" name="Changes by lukeedwards" comment="" />
+    <list id="4c4a8ba7-672d-460e-8521-925ac300b417" name="Changes by seccu" comment="" />
+    <list id="f64d7306-0b07-4333-b850-561b92ac89f7" name="Changes by Someone" comment="">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,17 +19,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/main.py">
-      <ranges>
-        <range start1="0" end1="2" start2="0" end2="0" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
-        <range start1="6" end1="7" start2="4" end2="5" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
-        <range start1="22" end1="23" start2="20" end2="21" changelist="4c4a8ba7-672d-460e-8521-925ac300b417" />
-        <range start1="28" end1="30" start2="26" end2="27" changelist="09905172-ecef-4984-9c78-ea5318b02fea" />
-        <range start1="32" end1="33" start2="29" end2="30" changelist="9d64227c-c265-4133-8347-8bd2467ded13" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,6 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "last_opened_file_path": "C:/Users/seccu/Documents/GitHub",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,6 +90,7 @@
       <workItem from="1677343706068" duration="268000" />
       <workItem from="1677411697223" duration="2538000" />
       <workItem from="1677414607969" duration="9994000" />
+      <workItem from="1677426304791" duration="322000" />
     </task>
     <task id="LOCAL-00001" summary="Added addition">
       <created>1677342149208</created>
