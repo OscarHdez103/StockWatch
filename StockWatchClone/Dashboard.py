@@ -19,7 +19,7 @@ def product_search(supermarket, product):
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
-        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product + "'")
+        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product.title() + "'")
     data = c.fetchall()
     for i in range(len(data)):
         end = len(data[i])
