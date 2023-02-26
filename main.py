@@ -16,15 +16,11 @@ def sql_executor(query):  # work in progress
     data = c.fetchall()
     return data
 
-
-
 def product_search(supermarket,product):
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
         c.execute("SELECT * FROM '"+supermarket+"' WHERE product_name = '"+product+"'")
-def product_search(supermarket, product):
-    c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product + "'")
     data = c.fetchall()
     return data
 
