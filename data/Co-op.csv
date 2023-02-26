@@ -1,4 +1,4 @@
-product_id,product_name,product_catagory,product_description,product_cost,product_quantity,product_supplier
+product_id,product_name,product_category,product_description,product_cost,product_quantity,product_supplier
 1,Coke,Beverage,100ml,0.13,95889,COP
 2,Milk,Fresh,100ml,0.12,83872,COP
 3,Crisps,Dry Foods,100g,0.13,93306,COP
