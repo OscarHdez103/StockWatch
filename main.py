@@ -6,8 +6,8 @@ conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
 
-def tabulate(supermarket,data):
-    query_df = pd.DataFrame(product_search(supermarket,data))
+def tabulate(supermarket, data):
+    query_df = pd.DataFrame(product_search(supermarket, data))
     st.dataframe(query_df)
 
 
@@ -17,17 +17,20 @@ def sql_executor(query):  # work in progress
     return data
 
 
+
 def product_search(supermarket,product):
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
         c.execute("SELECT * FROM '"+supermarket+"' WHERE product_name = '"+product+"'")
+def product_search(supermarket, product):
+    c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product + "'")
     data = c.fetchall()
     return data
 
 
 def home():
-    supermarkets = ["Products","Tesco", "Sainsbury's", "Asda", "Morrisons", "Co-op"]
+    supermarkets = ["Products", "Tesco", "Sainsbury's", "Asda", "Morrisons", "Co-op"]
     col1, col2 = st.columns(2)
     with col1:
         supermarkets_selector = st.selectbox("Supermarket", supermarkets)  # doesn't do anything yet
@@ -37,9 +40,8 @@ def home():
 
     with col2:
         if submit_code:
-            st.code(product)
             with st.expander("Pretty Table"):
-                tabulate(supermarkets_selector,product)
+                tabulate(supermarkets_selector, product)
 
 
 def about():
