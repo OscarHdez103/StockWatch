@@ -74,12 +74,13 @@ def graph():
     with st.form(key='query_form'):
         product = st.text_input("Search product")
         submit_code = st.form_submit_button("Search")
-
-    color = st.color_picker('Pick A Color', '#00f900')
+    cols = st.columns(22)
+    with cols[1]:
+        color = st.color_picker('', '#55ACEE')
     if submit_code:
         add_graph(supermarkets, product, color)
     else:
-        add_graph(supermarkets, "", color)
+        add_graph(supermarkets, "Bread", color)
 
 
 if __name__ == '__main__':
