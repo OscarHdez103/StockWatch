@@ -1,3 +1,5 @@
+from copy import copy
+
 import streamlit as st
 import altair as alt
 import pandas as pd
@@ -6,7 +8,8 @@ import sqlite3
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
-def add_graph(supermarkets, data, color):
+def add_graph(super, data, color):
+    supermarkets = copy(super)
 
     if data == "":
         st.write("")
