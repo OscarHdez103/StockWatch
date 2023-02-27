@@ -8,7 +8,7 @@ st.markdown("<h1 style='text-align: center;'>Graphs and Data </h1>", unsafe_allo
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
-# st.sidebar.image("StockWatchLogo.png")
+st.sidebar.image("StockWatchLogo.png")
 
 
 def add_graph(supermarkets, data, color):

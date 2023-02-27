@@ -5,7 +5,7 @@ import altair as alt
 import pandas as pd
 import sqlite3
 
-# st.sidebar.image("StockWatchLogo.png")
+st.sidebar.image("StockWatchLogo.png")
 
 
 def display_products(supermarket, product):
