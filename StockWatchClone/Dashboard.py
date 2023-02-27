@@ -1,11 +1,53 @@
 import streamlit as st
-from PIL import Image
+import altair as alt
 import pandas as pd
 import sqlite3
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
+def add_graph(supermarkets, data, color):
+
+    if data == "":
+        st.write("")
+        return
+    if not is_product(supermarkets, data):
+        st.error("Product not found")
+        return
+    supermarkets.remove("Products")
+    quantities = []
+    for supermarket in supermarkets:
+        query_df = pd.DataFrame(product_search(supermarket, data))
+        if supermarket == "Products":
+            quantities.append(query_df[2].tolist())
+        else:
+            quantities.append(query_df[4].tolist())
+
+    # Flatten the list of Series to a list of values
+    quantities = sum(quantities, [])
+
+    df = pd.DataFrame({'Supermarkets': supermarkets, 'Quantity': quantities})
+
+    df['Supermarkets'] = df['Supermarkets'].astype(str)
+
+    # Define the chart
+    chart = alt.Chart(df).mark_bar().encode(
+        x='Supermarkets',
+        y='Quantity',
+        color=alt.ColorValue(color),
+    ).properties(
+        width=250,
+    )
+
+    st.altair_chart(chart)
+
+
+def is_product(supermarkets, data):
+    for supermarket in supermarkets:
+        query_result = product_search(supermarket, data)
+        if len(query_result) > 0:
+            return True
+    return False
 
 def tabulate(supermarket, data):
     query_df = pd.DataFrame(product_search(supermarket, data))
@@ -41,10 +83,14 @@ def home():
         with st.form(key='query_form'):
             product = st.text_input("Search product")
             submit_code = st.form_submit_button("Search")
+        color = st.color_picker('', '#55ACEE')
+
 
     with col2:
         if submit_code:
             tabulate(supermarkets_selector, product)
+            if (supermarkets_selector == "Products") & submit_code:
+                add_graph(supermarkets, product.title(), color)
         else:
             tabulate(supermarkets_selector, "")
 
