@@ -69,6 +69,7 @@ if authentication_status:
     cols = st.columns(4)
     with cols[0]:
         new_product = st.text_input("Input Product Name")
+        new_product = new_product.title()
     with cols[1]:
         new_category = st.selectbox("Category", categories)
     with cols[2]:

@@ -10,7 +10,7 @@ st.markdown('<div style="text-align: center;">StockWatch is a comprehensive dash
             'effortlessly track national-level and individual supermarket stock for various products.</div>',
             unsafe_allow_html=True)
 
-f = open(r'pages\stockwatch.pdf', "rb")
+f = open(r'pages/stockwatch.pdf', "rb")
 pdf_bytes = f.read()
 pdf_base64 = b64encode(pdf_bytes).decode('utf-8')
 pdf_embed = f'<embed src="data:application/pdf;base64,{pdf_base64}" width="100%" height=500 ' \
