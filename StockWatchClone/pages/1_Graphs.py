@@ -53,17 +53,11 @@ def is_product(supermarkets, data):
     return False
 
 
-def sql_executor(query):  # work in progress
-    c.execute(query)
-    data = c.fetchall()
-    return data
-
-
 def product_search(supermarket, product):
     if product == "":
         c.execute("SELECT * FROM '" + supermarket + "'")
     else:
-        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = '" + product + "'")
+        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = ?", (product.title(),))
     data = c.fetchall()
     return data
 
