@@ -2,7 +2,7 @@ from base64 import b64encode
 
 import streamlit as st
 
-st.sidebar.image("StockWatchLogo.png")
+# st.sidebar.image("StockWatchLogo.png")
 
 st.markdown("<h1 style='text-align: center;'>About</h1>", unsafe_allow_html=True)
 
