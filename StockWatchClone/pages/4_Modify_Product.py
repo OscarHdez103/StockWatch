@@ -5,7 +5,7 @@ from pathlib import Path
 
 import sqlite3
 
-st.sidebar.image("shopbasket.png")
+st.sidebar.image("StockWatchLogo.png")
 
 names = ["Peter Parker", "Rebecca Miller"]
 usernames = ["pparker", "rmiller"]

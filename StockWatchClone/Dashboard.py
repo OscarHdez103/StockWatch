@@ -7,7 +7,7 @@ import sqlite3
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
-st.sidebar.image("shopbasket.png")
+st.sidebar.image("StockWatchLogo.png")
 
 def add_graph(super, data, color):
     supermarkets = copy(super)
