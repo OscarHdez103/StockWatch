@@ -55,7 +55,42 @@ def all_products():
             total(name[0], supermarket)
 
 
-def set_product(supermarket, data, quantity):
+def set_product_prices(supermarket, data, quantity):
+    if data == "":
+        st.write("")
+        return
+
+    if not is_product(supermarket, data):
+        st.error("Product not found")
+        return
+
+    query = "UPDATE {} SET product_cost = ? WHERE product_name = ?".format(supermarket)
+    c.execute(query, (quantity, data))
+    conn.commit()
+
+    all_products()
+
+    st.write("Product cost updated!")
+
+
+def add_to_product_prices(supermarket, data, quantity):
+    if data == "":
+        st.write("")
+        return
+
+    if not is_product(supermarket, data):
+        st.error("Product not found")
+        return
+
+    query = "UPDATE {} SET product_cost = product_cost + ? WHERE product_name = ?".format(supermarket)
+    c.execute(query, (quantity, data))
+    conn.commit()
+
+    all_products()
+
+    st.write("Product costs updated!")
+
+def set_product_quantity(supermarket, data, quantity):
     if data == "":
         st.write("")
         return
@@ -73,7 +108,7 @@ def set_product(supermarket, data, quantity):
     st.write("Product quantity updated!")
 
 
-def add_to_product(supermarket, data, quantity):
+def add_to_product_quantity(supermarket, data, quantity):
     if data == "":
         st.write("")
         return
@@ -117,9 +152,10 @@ def home():
     st.markdown("<h1 style='text-align: center;'>Product Modify</h1>", unsafe_allow_html=True)
     # st.sidebar.image("StockWatchLogo.png", use_column_width=True)
     supermarkets = ["Tesco", "Iceland", "Asda", "Morrisons", "Co-op"]
+    supermarkets_selector = st.selectbox("Choose Supermarket", supermarkets)
     col1, col2 = st.columns(2)
     with col1:
-        supermarkets_selector = st.selectbox("Supermarket", supermarkets)
+        st.markdown("<h3 style='text-align: center;'>Modify Product Quantity</h3>", unsafe_allow_html=True)
         with st.form(key='query_form'):
             product = st.text_input("Search product")
             quantity = st.text_input("New quantity")
@@ -128,14 +164,26 @@ def home():
                 submit_code = st.form_submit_button("Update quantity")
             with colm2:
                 submit_code_add = st.form_submit_button("Add quantity to")
+        if submit_code:
+            set_product_quantity(supermarkets_selector, product.title(), quantity)
+        elif submit_code_add:
+            add_to_product_quantity(supermarkets_selector, product.title(), quantity)
 
     with col2:
-        if submit_code:
-            set_product(supermarkets_selector, product.title(), quantity)
-        elif submit_code_add:
-            add_to_product(supermarkets_selector, product.title(), quantity)
+        st.markdown("<h3 style='text-align: center;'>Modify Product Costs</h3>", unsafe_allow_html=True)
+        with st.form(key='query_form2'):
+            product2 = st.text_input("Search product")
+            quantity2 = st.text_input("New quantity")
+            colm1_2, colm2_2 = st.columns(2)
+            with colm1_2:
+                submit_code2 = st.form_submit_button("Update quantity")
+            with colm2_2:
+                submit_code_add2 = st.form_submit_button("Add quantity to")
+        if submit_code2:
+            set_product_prices(supermarkets_selector, product2.title(), quantity2)
+        elif submit_code_add2:
+            add_to_product_prices(supermarkets_selector, product2.title(), quantity2)
 
-        st.image("StockWatchLogo.png", use_column_width=True)
 
 
 if __name__ == '__main__':
