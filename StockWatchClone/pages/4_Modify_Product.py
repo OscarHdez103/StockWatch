@@ -1,12 +1,40 @@
 import streamlit as st
-import streamlit.components.v1 as components
+import streamlit_authenticator as stauth
+import pickle
+from pathlib import Path
 
 import sqlite3
+
 st.sidebar.image("shopbasket.png")
+
+names = ["Peter Parker", "Rebecca Miller"]
+usernames = ["pparker", "rmiller"]
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
 
+file_path = Path(__file__).parent / "user_data/hashed_pw.pkl"
+with file_path.open("rb") as file:
+    hashed_passwords = pickle.load(file)
+
+credentials = {"usernames": {}}
+
+for uname, name, pwd in zip(usernames, names, hashed_passwords):
+    user_dict = {"name": name, "password": pwd}
+    credentials["usernames"].update({uname: user_dict})
+
+authenticator = stauth.Authenticate(credentials,"addition_dashboard","abc", cookie_expiry_days=30)
+name,authentication_status,username = authenticator.login("Login","main")
+
+if authentication_status == False:
+    st.error("Username/Password is incorrect")
+if authentication_status == None:
+    st.warning("Please enter your username and password")
+if authentication_status:
+    #st.write("Success")
+
+    #Logout
+    authenticator.logout("Logout","sidebar")
 
 def total(product, supermarket):
     c.execute("SELECT product_quantity FROM " + supermarket + " WHERE product_name = '" + product + "'")
@@ -106,6 +134,7 @@ def home():
             add_to_product(supermarkets_selector, product.title(), quantity)
 
         st.image("StockWatchLogo.png", use_column_width=True)
+
 
 if __name__ == '__main__':
     home()
