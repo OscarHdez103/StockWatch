@@ -7,6 +7,7 @@ import sqlite3
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
+st.sidebar.image("shopbasket.png")
 
 def add_graph(super, data, color):
     supermarkets = copy(super)
@@ -86,7 +87,8 @@ def home():
         with st.form(key='query_form'):
             product = st.text_input("Search product")
             submit_code = st.form_submit_button("Search")
-        color = st.color_picker('', '#55ACEE')
+        #color = st.color_picker('', '#55ACEE')
+        color = '#55ACEE'
 
 
     with col2:

@@ -6,6 +6,7 @@ from pathlib import Path
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
+st.sidebar.image("shopbasket.png")
 
 names =["Peter Parker","Rebecca Miller"]
 usernames = ["pparker","rmiller"]

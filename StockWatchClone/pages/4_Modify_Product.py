@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 import sqlite3
+st.sidebar.image("shopbasket.png")
 
 conn = sqlite3.connect('data/Supermarkets.db')
 c = conn.cursor()
