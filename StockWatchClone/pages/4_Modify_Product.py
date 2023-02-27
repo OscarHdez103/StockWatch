@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 import sqlite3
 
@@ -103,6 +104,7 @@ def home():
         elif submit_code_add:
             add_to_product(supermarkets_selector, product.title(), quantity)
 
+        st.image("StockWatchLogo.png", use_column_width=True)
 
 if __name__ == '__main__':
     home()
