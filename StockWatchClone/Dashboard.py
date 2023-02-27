@@ -1,13 +1,23 @@
 from copy import copy
-
+import Backend
 import streamlit as st
 import altair as alt
 import pandas as pd
 import sqlite3
 
-conn = sqlite3.connect('data/Supermarkets.db')
-c = conn.cursor()
 st.sidebar.image("StockWatchLogo.png")
+
+
+def display_products(supermarket, product):
+    data = Backend.product_search(supermarket, product)
+    for i in range(len(data)):
+        end = len(data[i])
+        if len(data[i]) == 4:
+            data[i] = data[i][1:end]
+        else:
+            data[i] = data[i][1:end - 1]
+    return data
+
 
 def add_graph(super, data, color):
     supermarkets = copy(super)
@@ -21,7 +31,7 @@ def add_graph(super, data, color):
     supermarkets.remove("Products")
     quantities = []
     for supermarket in supermarkets:
-        query_df = pd.DataFrame(product_search(supermarket, data))
+        query_df = pd.DataFrame(display_products(supermarket, data))
         if supermarket == "Products":
             quantities.append(query_df[2].tolist())
         else:
@@ -48,13 +58,14 @@ def add_graph(super, data, color):
 
 def is_product(supermarkets, data):
     for supermarket in supermarkets:
-        query_result = product_search(supermarket, data)
+        query_result = Backend.product_search(supermarket, data)
         if len(query_result) > 0:
             return True
     return False
 
+
 def tabulate(supermarket, data):
-    query_df = pd.DataFrame(product_search(supermarket, data))
+    query_df = pd.DataFrame(display_products(supermarket, data))
     if supermarket == "Products":
         query_df.columns = ["Name", "Category", "Total"]
     else:
@@ -62,19 +73,7 @@ def tabulate(supermarket, data):
     st.dataframe(query_df)
 
 
-def product_search(supermarket, product):
-    if product == "":
-        c.execute("SELECT * FROM '" + supermarket + "'")
-    else:
-        c.execute("SELECT * FROM '" + supermarket + "' WHERE product_name = ?", (product.title(),))
-    data = c.fetchall()
-    for i in range(len(data)):
-        end = len(data[i])
-        if len(data[i]) == 4:
-            data[i] = data[i][1:end]
-        else:
-            data[i] = data[i][1:end - 1]
-    return data
+
 
 
 def home():
@@ -87,9 +86,8 @@ def home():
         with st.form(key='query_form'):
             product = st.text_input("Search product")
             submit_code = st.form_submit_button("Search")
-        #color = st.color_picker('', '#55ACEE')
+        # color = st.color_picker('', '#55ACEE')
         color = '#55ACEE'
-
 
     with col2:
         if submit_code:
@@ -102,5 +100,3 @@ def home():
 
 if __name__ == '__main__':
     home()
-    conn.close()
-
